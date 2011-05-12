@@ -10,14 +10,16 @@ describe Cowsay do
 
   it "should produce some output" do
     @cowsay.say @command
-    @cowsay.lines.should_not be_empty
+    @cowsay.to_s.should_not be_empty
     puts @cowsay
   end
 
   it "should produce lines starting and ending with <text> tag" do
     @cowsay.say @command
-    @cowsay.lines.each do |l|
-      l.should match /<text.*>[^\n]+<\/text>/
+    @cowsay.to_s.each_line do |l|
+      if l.start_with? '<text.*>'
+        l.should match /<text.*>[^\n]+<\/text>/
+      end
     end
   end
 
@@ -33,15 +35,7 @@ describe Cowsay do
     @command.tongue = '99'
     @cowsay.say @command
 
-    found_eyes = false
-    found_tongue = false
-
-    @cowsay.lines.each do |l|
-      found_eyes = true if l.include? '88'
-      found_tongue = true if l.include? '99'
-    end
-
-    found_eyes.should be_true
-    found_tongue.should be_true
+    @cowsay.to_s.should include '88'
+    @cowsay.to_s.should include '99'
   end
 end
