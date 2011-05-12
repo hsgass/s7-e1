@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Cowsay do
 
   before :each do
-    @cowsay       = Cowsay.new
+    @cowsay       = Cowsay.new(SVGRenderer.new)
     @command      = Command.new
     @command.text = 'foo'
   end
@@ -35,6 +35,7 @@ describe Cowsay do
 
     found_eyes = false
     found_tongue = false
+
     @cowsay.lines.each do |l|
       found_eyes = true if l.include? '88'
       found_tongue = true if l.include? '99'

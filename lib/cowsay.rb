@@ -2,9 +2,10 @@ class Cowsay
 
   attr_reader :lines
 
-  def initialize(width = '100%', height = '100%')
-    @width  = width
-    @height = height
+  def initialize(renderer, img_width = '100%', img_height = '100%')
+    @renderer   = renderer
+    @img_width  = img_width
+    @img_height = img_height
   end
 
   def say(command)
@@ -21,17 +22,7 @@ class Cowsay
   end
 
   def to_s
-    svg = "<?xml version='1.0' standalone='no'?>\n"
-    svg << "<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' "
-    svg << "'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>\n"
-    svg << "<svg width='#{@width}' height='#{@height}' version='1.1' "
-    svg << "xmlns='http://www.w3.org/2000/svg'>\n"
-
-    @lines.each do |l|
-      svg << l
-    end
-
-    svg << "</svg>\n"
+    @renderer.output(@lines, @img_width, @img_height)
   end
 end
 
