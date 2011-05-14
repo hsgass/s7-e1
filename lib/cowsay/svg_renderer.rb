@@ -7,7 +7,7 @@ module Cowsay
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
 <svg width='#{options["img_width"]}' height='#{options['img_height']}'
-version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox="0 0 1000 300">
+version='1.1' xmlns='http://www.w3.org/2000/svg'>
 EOT
 
       y = 0
