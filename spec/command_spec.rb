@@ -8,6 +8,10 @@ module Cowsay
       @command.text = 'foo'
     end
 
+    it "should initialize with default text" do
+      Command.new.text.should == 'MOOF!'
+    end
+
     it "should create string starting with cowsay and ending with text" do
       @command.to_s.should match /cowsay\s+"foo"/
     end

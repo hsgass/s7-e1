@@ -14,6 +14,10 @@ module Cowsay
       'youthful' => ' -y'
     }
 
+    def initialize
+      @text = 'MOOF!'
+    end
+
     def to_s
       cowsay = "cowsay"
       if SWITCH_VALUES.include? @mode
