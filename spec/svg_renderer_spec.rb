@@ -10,14 +10,6 @@ module Cowsay
       @command.text = 'moof!'
     end
 
-    it "should produce lines starting and ending with <text> tag" do
-      Cowsay.say(@command, @renderer, @options).each_line do |l|
-        if l.start_with? '<text'
-          l.should match /<text.?>[^\n]+<\/text>/
-        end
-      end
-    end
-
     it "should render a specified file if it's in the cowpath" do
       default       = Cowsay.say(@command, @renderer, @options)
       @command.file = 'beavis.zen.cow'
