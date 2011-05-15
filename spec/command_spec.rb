@@ -17,7 +17,7 @@ module Cowsay
     end
 
     it "should add correct switch for borg cow" do
-      @command.mode = 'borg'
+      @command.mode = :borg
       @command.to_s.should eql 'cowsay -b "foo"'
     end
 
@@ -46,7 +46,7 @@ module Cowsay
     it "should not add eyes or tongue param when mode is specified" do
       @command.eyes   = '96'
       @command.tongue = '()'
-      @command.mode   = 'stoned'
+      @command.mode   = :stoned
       @command.to_s.should eql 'cowsay -s "foo"'
     end
 
