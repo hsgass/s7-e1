@@ -5,15 +5,14 @@ module Cowsay
 
     before :each do
       @command      = Command.new
-      @renderer     = SVGRenderer.new
       @options      = { 'img_width' => '100%', 'img_height' => '100%' }
       @command.text = 'moof!'
     end
 
     it "should render a specified file if it's in the cowpath" do
-      default       = Cowsay.say(@command, @renderer, @options)
+      default       = Cowsay.say(SVGRenderer, @command, @options)
       @command.file = 'beavis.zen.cow'
-      s             = Cowsay.say(@command, @renderer, @options)
+      s             = Cowsay.say(SVGRenderer, @command, @options)
       s.should_not == default
       puts s
     end
@@ -21,14 +20,14 @@ module Cowsay
     it "should render eyes and tongue" do
       @command.eyes   = '88'
       @command.tongue = '99'
-      s               = Cowsay.say(@command, @renderer, @options)
+      s               = Cowsay.say(SVGRenderer, @command, @options)
 
       s.should contain /88/
       s.should contain /99/
     end
 
     it "should not output any illegal XML characters" do
-      Cowsay.say(@command, @renderer, @options).each_line do |l|
+      Cowsay.say(SVGRenderer, @command, @options).each_line do |l|
         if l.match /<text[^>]?>(.*)<\/text>/
           $1.should_not contain /[<>"']/
         end

@@ -1,5 +1,6 @@
 module Cowsay
-  class SVGRenderer
+  module SVGRenderer
+    extend self
 
     def output(lines, options)
       svg = <<-EOT
@@ -8,7 +9,7 @@ module Cowsay
 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
 <svg width='#{options["img_width"]}' height='#{options['img_height']}'
 version='1.1' xmlns='http://www.w3.org/2000/svg'>
-EOT
+      EOT
 
       y = 0
       lines.each do |l|

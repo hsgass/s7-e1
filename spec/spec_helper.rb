@@ -4,7 +4,7 @@ require 'rspec/expectations'
 
 RSpec::Matchers.define :contain do |regex|
   match do |m|
-    (m.respond_to? :map and m.map { |l| l =~ regex }) or (m =~ regex)
+    (m.respond_to? :flatten and m.flatten.to_s.match regex ) or (m =~ regex)
   end
 end
 
