@@ -4,14 +4,14 @@ module Cowsay
     attr_accessor :text, :mode, :eyes, :tongue, :width, :nowrap, :file
 
     SWITCH_VALUES = {
-      'borg'     => ' -b',
-      'dead'     => ' -d',
-      'greedy'   => ' -g',
-      'paranoid' => ' -p',
-      'stoned'   => ' -s',
-      'tired'    => ' -t',
-      'wired'    => ' -w',
-      'youthful' => ' -y'
+      :borg     => ' -b',
+      :dead     => ' -d',
+      :greedy   => ' -g',
+      :paranoid => ' -p',
+      :stoned   => ' -s',
+      :tired    => ' -t',
+      :wired    => ' -w',
+      :youthful => ' -y'
     }
 
     def initialize
