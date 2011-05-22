@@ -10,19 +10,16 @@ describe Cowsay do
   end
 
   it "should contain specified text" do
-    Cowsay.say @renderer, @command, @options
+    Cowsay.say({renderer: @renderer, command: @command, options: @options})
     @renderer.lines.should contain /moof/
     puts @renderer.lines
   end
 
   it "should accept a block for command" do
-    Cowsay.say(@renderer) do |command|
+    Cowsay.say do |command|
       command.mode = :stoned
       command.text = "im in ur block"
-    end
-
-    @renderer.lines.should contain /im in ur block/
-    puts @renderer.lines
+    end.should contain /im in ur block/
   end
 
   it "shouldn't need any arguments" do
