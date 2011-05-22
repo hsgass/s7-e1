@@ -17,6 +17,7 @@ describe Cowsay do
 
   it "should accept a block for command" do
     Cowsay.say(@renderer) do |command|
+      command.mode = :stoned
       command.text = "im in ur block"
     end
 

@@ -12,8 +12,6 @@ Gem::Specification.new do |s|
   s.summary     = %q{A Ruby wrapper around cowsay, with SVG output.}
   s.description = %q{}
 
-  #s.rubyforge_project = "hl7-processor"
-
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features,.autotest,.rspec}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
