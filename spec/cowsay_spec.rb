@@ -25,8 +25,8 @@ describe Cowsay do
   end
 
   it "shouldn't need any arguments" do
-    Cowsay.say do |command|
-      command.text = "im in ur block"
+    Cowsay.say do |c|
+      c.text = "im in ur block"
     end.should contain /im in ur block/
   end
 end
