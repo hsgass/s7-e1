@@ -5,9 +5,7 @@ A library for generating SVG files from the Unix cowsay command.
 
     require 'cowsay'
     #=> true
-    include Cowsay
-    #=> Object
-    c = Command.new
+    c = Cowsay::Command.new
     #=> cowsay "MOOF!"
     c.text = 'I am 100% pure beef.'
     #=> "I am 100% pure beef."
